@@ -1,0 +1,15 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Encyclopedia
+{% endblock %}
+
+{% block body %}
+<h3 style="color:rgb(73, 28, 118) ;">{{title}}</h3>
+<hr>
+<br>
+<button style="background-color:rgb(39, 125, 206) ;border: 1em;border-color: rgb(66, 121, 222);width:6em ;"><a style="text-decoration: none; color:rgb(239, 239, 245) "  href="{% url 'update' title %}">Edit</a></button>
+
+    <p>{{text|safe}}</p>
+
+{% endblock %}

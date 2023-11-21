@@ -1,0 +1,27 @@
+{% extends "encyclopedia/layout.html" %}
+
+
+{% block title %}
+    Encyclopedia
+{% endblock %}
+
+{% block body %}
+
+
+
+{%if flag%}
+<h2>fill the field</h2>
+{%endif%}
+<form action="{% url 'update' title %}" method="post">
+    {% csrf_token %}
+    <br>
+    {{update}}
+    <br>
+    <br>
+    <input type="submit" value="save" style="color:white; background-color:rgb(117, 188, 117); width:6em; ">
+    
+</form>
+
+
+
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Encyclopedia
+{% endblock %}
+
+{% block body %}
+{% if flag%}
+<h3 style="color:rgb(210, 48, 48) ;"> This title already exists, please enter a new title.</h3>
+<form  action="{% url 'create' %}" method="post">
+    {% csrf_token %}
+    {{ add_new }}
+    <br>
+    <br>
+    <input type="submit"value="save" style="background-color:rgb(115, 111, 149); width:6em ;color:white;" >
+</form>
+
+
+{% else %}
+<form action="{% url 'create' %}" method="post" style="display:flexbox; flex-direction: column;">
+    {% csrf_token %}
+    <br>
+    {{ add_new }}
+    <br>
+    <br>
+    <input type="submit" value="save" style="background-color:rgb(115, 111, 149); width:6em ;color:white;">
+</form>
+{% endif %}
+
+
+{% endblock %}
